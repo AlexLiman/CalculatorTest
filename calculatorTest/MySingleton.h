@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
 @interface MySingleton : NSObject  
- {
+{
     NSString *example;
 }
 @property (nonatomic, retain) NSString *example;

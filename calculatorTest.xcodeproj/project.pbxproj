@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841A5F6A1D55187C00E61142 /* button_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 841A5F641D55187C00E61142 /* button_highlighted.png */; };
+		841A5F6B1D55187C00E61142 /* button_highlighted_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 841A5F651D55187C00E61142 /* button_highlighted_1.png */; };
+		841A5F6C1D55187C00E61142 /* button_highlighted_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 841A5F661D55187C00E61142 /* button_highlighted_2.png */; };
+		841A5F6D1D55187C00E61142 /* button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 841A5F671D55187C00E61142 /* button_normal.png */; };
+		841A5F6E1D55187C00E61142 /* button_normal_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 841A5F681D55187C00E61142 /* button_normal_1.png */; };
+		841A5F6F1D55187C00E61142 /* button_normal_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 841A5F691D55187C00E61142 /* button_normal_2.png */; };
+		8428D9441D55091B00D83195 /* ViewControllerIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428D9431D55091B00D83195 /* ViewControllerIndicator.m */; };
+		8428D94B1D550D9400D83195 /* ASTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428D94A1D550D9400D83195 /* ASTextField.m */; };
 		848644311D53D09D005B7700 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 848644301D53D09D005B7700 /* main.m */; };
 		848644341D53D09D005B7700 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 848644331D53D09D005B7700 /* AppDelegate.m */; };
 		8486443C1D53D09D005B7700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8486443B1D53D09D005B7700 /* Assets.xcassets */; };
@@ -35,6 +43,7 @@
 		848644AD1D53FBF4005B7700 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 848644A81D53FBF4005B7700 /* 5.png */; };
 		848644B31D5417D0005B7700 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 848644B21D5417D0005B7700 /* Reachability.m */; };
 		848644B71D541942005B7700 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 848644B61D541942005B7700 /* MySingleton.m */; };
+		84EDCC4D1D56936F00039E6B /* ValidationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDCC4C1D56936F00039E6B /* ValidationTextField.m */; };
 		A39E8E6F4BC47DDC822DB17C /* libPods-calculatorTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0B84C79CCD89426FC7FF65 /* libPods-calculatorTest.a */; };
 		E5EC0FF1E419DBC4A24C2790 /* libPods-calculatorTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EC6DD61A1D1583B7A95876 /* libPods-calculatorTestUITests.a */; };
 		EFCE613FB764B31A72DD3C40 /* libPods-calculatorTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49152F320EFE2167BCAC5E41 /* libPods-calculatorTestTests.a */; };
@@ -78,6 +87,16 @@
 		4001E7676228AD72E57D633C /* Pods-calculatorTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculatorTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-calculatorTestTests/Pods-calculatorTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		49152F320EFE2167BCAC5E41 /* libPods-calculatorTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-calculatorTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F8AD206C73F6192969003B /* Pods-calculatorTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculatorTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-calculatorTestUITests/Pods-calculatorTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		841A5F641D55187C00E61142 /* button_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_highlighted.png; sourceTree = "<group>"; };
+		841A5F651D55187C00E61142 /* button_highlighted_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_highlighted_1.png; sourceTree = "<group>"; };
+		841A5F661D55187C00E61142 /* button_highlighted_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_highlighted_2.png; sourceTree = "<group>"; };
+		841A5F671D55187C00E61142 /* button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_normal.png; sourceTree = "<group>"; };
+		841A5F681D55187C00E61142 /* button_normal_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_normal_1.png; sourceTree = "<group>"; };
+		841A5F691D55187C00E61142 /* button_normal_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_normal_2.png; sourceTree = "<group>"; };
+		8428D9421D55091B00D83195 /* ViewControllerIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIndicator.h; sourceTree = "<group>"; };
+		8428D9431D55091B00D83195 /* ViewControllerIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIndicator.m; sourceTree = "<group>"; };
+		8428D9491D550D9400D83195 /* ASTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextField.h; sourceTree = "<group>"; };
+		8428D94A1D550D9400D83195 /* ASTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTextField.m; sourceTree = "<group>"; };
 		8486442C1D53D09D005B7700 /* calculatorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calculatorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848644301D53D09D005B7700 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		848644321D53D09D005B7700 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +137,8 @@
 		848644B21D5417D0005B7700 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		848644B51D541942005B7700 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
 		848644B61D541942005B7700 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
+		84EDCC4B1D56936F00039E6B /* ValidationTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationTextField.h; sourceTree = "<group>"; };
+		84EDCC4C1D56936F00039E6B /* ValidationTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationTextField.m; sourceTree = "<group>"; };
 		AF1FFE09889332B072510816 /* Pods-calculatorTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculatorTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-calculatorTest/Pods-calculatorTest.debug.xcconfig"; sourceTree = "<group>"; };
 		C134ED3722C28B6D856F3673 /* Pods-calculatorTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculatorTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-calculatorTestTests/Pods-calculatorTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2EC6DD61A1D1583B7A95876 /* libPods-calculatorTestUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-calculatorTestUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,9 +198,13 @@
 		8486442E1D53D09D005B7700 /* calculatorTest */ = {
 			isa = PBXGroup;
 			children = (
+				84EDCC4B1D56936F00039E6B /* ValidationTextField.h */,
+				84EDCC4C1D56936F00039E6B /* ValidationTextField.m */,
 				848644B41D541919005B7700 /* Sindleton */,
 				848644751D53D0FF005B7700 /* ViewController.h */,
 				848644761D53D0FF005B7700 /* ViewController.m */,
+				8428D9421D55091B00D83195 /* ViewControllerIndicator.h */,
+				8428D9431D55091B00D83195 /* ViewControllerIndicator.m */,
 				848644911D53EC7E005B7700 /* ViewControllerRegistration.h */,
 				848644921D53EC7E005B7700 /* ViewControllerRegistration.m */,
 				848644771D53D0FF005B7700 /* ViewControllerEmail.h */,
@@ -228,6 +253,8 @@
 		848644651D53D0C8005B7700 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				8428D9491D550D9400D83195 /* ASTextField.h */,
+				8428D94A1D550D9400D83195 /* ASTextField.m */,
 				848644B11D5417D0005B7700 /* Reachability.h */,
 				848644B21D5417D0005B7700 /* Reachability.m */,
 			);
@@ -237,6 +264,12 @@
 		848644661D53D0D4005B7700 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				841A5F641D55187C00E61142 /* button_highlighted.png */,
+				841A5F651D55187C00E61142 /* button_highlighted_1.png */,
+				841A5F661D55187C00E61142 /* button_highlighted_2.png */,
+				841A5F671D55187C00E61142 /* button_normal.png */,
+				841A5F681D55187C00E61142 /* button_normal_1.png */,
+				841A5F691D55187C00E61142 /* button_normal_2.png */,
 				848644A41D53FBF4005B7700 /* 1.png */,
 				848644A51D53FBF4005B7700 /* 2.png */,
 				848644A61D53FBF4005B7700 /* 3.png */,
@@ -402,18 +435,24 @@
 				848644AA1D53FBF4005B7700 /* 2.png in Resources */,
 				848644721D53D0E3005B7700 /* TextFieldButtonLog.png in Resources */,
 				8486447F1D53D112005B7700 /* Main.storyboard in Resources */,
+				841A5F6A1D55187C00E61142 /* button_highlighted.png in Resources */,
 				848644AC1D53FBF4005B7700 /* 4.png in Resources */,
 				8486443F1D53D09D005B7700 /* LaunchScreen.storyboard in Resources */,
 				8486443C1D53D09D005B7700 /* Assets.xcassets in Resources */,
+				841A5F6B1D55187C00E61142 /* button_highlighted_1.png in Resources */,
 				848644AB1D53FBF4005B7700 /* 3.png in Resources */,
+				841A5F6E1D55187C00E61142 /* button_normal_1.png in Resources */,
 				848644741D53D0E3005B7700 /* TwitterButton.png in Resources */,
 				848644971D53EF4D005B7700 /* iPhone 6 Plus.png in Resources */,
+				841A5F6D1D55187C00E61142 /* button_normal.png in Resources */,
 				848644701D53D0E3005B7700 /* googleButton.png in Resources */,
 				8486446F1D53D0E3005B7700 /* FacebookButton.png in Resources */,
 				848644731D53D0E3005B7700 /* TextFieldButtonPassword.png in Resources */,
 				848644A91D53FBF4005B7700 /* 1.png in Resources */,
+				841A5F6C1D55187C00E61142 /* button_highlighted_2.png in Resources */,
 				848644AD1D53FBF4005B7700 /* 5.png in Resources */,
 				8486446E1D53D0E3005B7700 /* EmailTextField.png in Resources */,
+				841A5F6F1D55187C00E61142 /* button_normal_2.png in Resources */,
 				848644711D53D0E3005B7700 /* SendButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,8 +604,11 @@
 				8486447C1D53D0FF005B7700 /* ViewControllerEmail.m in Sources */,
 				848644B71D541942005B7700 /* MySingleton.m in Sources */,
 				848644341D53D09D005B7700 /* AppDelegate.m in Sources */,
+				84EDCC4D1D56936F00039E6B /* ValidationTextField.m in Sources */,
 				8486447B1D53D0FF005B7700 /* ViewController.m in Sources */,
+				8428D9441D55091B00D83195 /* ViewControllerIndicator.m in Sources */,
 				848644B31D5417D0005B7700 /* Reachability.m in Sources */,
+				8428D94B1D550D9400D83195 /* ASTextField.m in Sources */,
 				8486447D1D53D0FF005B7700 /* ViewControllerLogIn.m in Sources */,
 				848644311D53D09D005B7700 /* main.m in Sources */,
 				848644931D53EC7E005B7700 /* ViewControllerRegistration.m in Sources */,

@@ -7,8 +7,12 @@
 //
 
 #import "ViewControllerLogIn.h"
+#import "ViewController.h"
+
 static NSString* kSettingsLogin           = @"login";
 static NSString* kSettingsPassword        = @"password";
+
+
 @interface ViewControllerLogIn () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textFieldLogIn;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldPassword;
@@ -62,9 +66,10 @@ static NSString* kSettingsPassword        = @"password";
     
     //    self.loginField.text = [userDefaults objectForKey:kSettingsLogin];
     //    self.passwordField.text = [userDefaults objectForKey:kSettingsPassword];
-    if ([[userDefaults objectForKey:kSettingsPassword] isEqualToString:self.textFieldLogIn.text ]&& [[userDefaults objectForKey:kSettingsLogin] isEqualToString:self.textFieldPassword.text]) {
-        NSLog(@"Yes");
-        
+    if ([[userDefaults objectForKey:kSettingsLogin] isEqualToString:self.textFieldLogIn.text ]&& [[userDefaults objectForKey:kSettingsPassword] isEqualToString:self.textFieldPassword.text] && [self.textFieldPassword.text length] > 0) {
+
+        ViewController *add = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewControllerIndicator"];
+        [self presentViewController:add animated:YES completion:nil];
     }
     //
     //    self.levelControl.selectedSegmentIndex = [userDefaults integerForKey:kSettingsLevel];

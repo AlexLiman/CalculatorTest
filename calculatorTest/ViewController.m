@@ -129,8 +129,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
 //- (IBAction)testNet {
 //    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate ];
 //    

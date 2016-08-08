@@ -7,7 +7,9 @@
 //
 
 #import "ViewControllerRegistration.h"
-
+#import "ViewController.h"
+#import "MySingleton.h"
+#import "ValidationTextField.h"
 
 static NSString* kSettingsLogin           = @"login";
 static NSString* kSettingsPassword        = @"password";
@@ -15,13 +17,22 @@ static NSString* kSettingsPassword        = @"password";
 @interface ViewControllerRegistration () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *registrationTextFields;
+@property (assign, nonatomic) BOOL isCorrect;
+@property (weak, nonatomic) UITextField *currentTextField;
+@property (strong, nonatomic) ValidationTextField *valid;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
-@implementation ViewControllerRegistration
+@implementation ViewControllerRegistration {
+    UIDatePicker *datePicker;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.valid = [[ValidationTextField alloc] init];
     // Do any additional setup after loading the view.
     for (int i = 0; i < [self.registrationTextFields count]; i++) {
         
@@ -29,22 +40,56 @@ static NSString* kSettingsPassword        = @"password";
         field.attributedPlaceholder = [[NSAttributedString alloc]   initWithString:field.placeholder
                                                                         attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     }
+
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(notificationKeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [nc addObserver:self selector:@selector(notificationKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    for (int i = 0; i < [self.registrationTextFields count]; i++) {
+        
+        UITextField *field = [self.registrationTextFields objectAtIndex:i];
+        
+        switch (field.tag) {
+            case 1:
+                field.text = @"Alex";
+                break;
+            case 2:
+                field.text = @"Liman";
+                break;
+            case 3:
+                field.text = @"limanalex@mail.ru";
+                break;
+            case 4:
+                field.text = @"+115 (555) 555-5555";
+                break;
+            case 5:
+                field.text = @"Liman";
+                break;
+            case 6:
+                field.text = @"June 13, 1995";
+                break;
+            case 7:
+                field.text = @"Lindeman";
+                break;
+            case 8:
+                field.text = @"1234567";
+                break;
+                
+        }
+        
+    }
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - RegularExeption
 
@@ -55,48 +100,42 @@ static NSString* kSettingsPassword        = @"password";
         
         UITextField *field = [self.registrationTextFields objectAtIndex:i];
         
-        switch (field.tag) {
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                if(![self validateEmail:field.text]) {
-                    field.text = @"";
-                    field.placeholder = @"Неверный формат";
-                    field.attributedPlaceholder = [[NSAttributedString alloc]   initWithString:@"Неверный формат!"
-                                                                                    attributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
-                    
-                }
-                break;
-            case 4:
-                
-                break;
-            case 5:
-                
-                break;
-            case 6:
-                
-                break;
-            case 7:
-                if ([field.text length] < 6) {
-                    field.text = @"";
-                    field.attributedPlaceholder = [[NSAttributedString alloc]   initWithString:@"Пароль меньше шести символов!"
-                                                                                    attributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
-                    
-                }
-                break;
-            case 8:
-                
-                break;
-                
-            default:
-                break;
-        }
+        [self.valid regExp:field];
         
     }
+    
+    
+    
+    MySingleton *singleton = [MySingleton sharedMySingleton];
+
+    
+    if ([self.valid validate] == YES) {
+        
+        if (singleton.netStatus == NotReachable) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
+                                                                           message:@"Нет доступа к интернету"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {
+                                                                  
+                                                    
+                                                                  
+                                                                  
+                                                                  }];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        } else {
+            ViewController *add = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewControllerIndicator"];
+            [self presentViewController:add animated:YES completion:nil];
+        }
+       
+    }
+    self.valid.isCorrect = YES;
+    
     
 }
 
@@ -106,6 +145,8 @@ static NSString* kSettingsPassword        = @"password";
     
     return [emailTest evaluateWithObject:candidate];
 }
+
+
 
 #pragma mark - UITextFieldDelegate
 
@@ -129,6 +170,20 @@ static NSString* kSettingsPassword        = @"password";
     //NSLog(@"shouldChangeCharactersInRange %@", NSStringFromRange(range));
     //NSLog(@"replacementString %@", string);
     
+    if (textField.tag != 4 && textField.tag != 3) {
+        //NSCharacterSet* validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+        //NSArray* components = [string componentsSeparatedByCharactersInSet:validationSet];
+        NSCharacterSet *myCharacters = [NSCharacterSet characterSetWithCharactersInString:@",./?'\"*()&^%$#@!~`><|\\;:[]{}-1234567890"];
+        NSArray* components = [string componentsSeparatedByCharactersInSet:myCharacters];
+        
+        
+        
+        if ([components count] > 1) {
+            return NO;
+        }
+
+    }
+   
     if (textField.tag == 4) {
         NSCharacterSet* validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
         NSArray* components = [string componentsSeparatedByCharactersInSet:validationSet];
@@ -229,6 +284,35 @@ static NSString* kSettingsPassword        = @"password";
     return YES;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+  
+    self.currentTextField = textField;
+    if (textField.tag == 6) {
+        datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        textField.inputView = datePicker;
+        
+        
+        [datePicker addTarget:self action:@selector(datePicerChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+
+    return YES;
+}
+
+- (void)datePicerChanged:(UIDatePicker *)sender {
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    formater.dateStyle = NSDateFormatterLongStyle;
+    UITextField *email;
+    for (int i = 0; i < [self.registrationTextFields count]; i++) {
+        UITextField *field = [self.registrationTextFields objectAtIndex:i];
+        if (field.tag == 6) {
+            email = field;
+        }
+    }
+    email.text = [formater stringFromDate:sender.date];
+    
+}
+
 
 #pragma mark - Save and Load
 
@@ -244,6 +328,42 @@ static NSString* kSettingsPassword        = @"password";
 }
 
 
+#pragma mark - Notifications
+
+- (void) notificationKeyboardWillShow:(NSNotification*) notification {
+    
+    //NSLog(@"notificationKeyboardWillShow:\n%@", notification.userInfo);
+
+        __block CGRect rectKeyboard1;
+        [UIView animateWithDuration:0.25f animations:^{
+            
+            NSDictionary* info = [notification userInfo];
+            CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+            UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+            self.scrollView.contentInset = contentInsets;
+            self.scrollView.scrollIndicatorInsets = contentInsets;
+            
+            // If active text field is hidden by keyboard, scroll it so it's visible
+            // Your application might not need or want this behavior.
+            CGRect aRect = self.view.frame;
+            aRect.size.height -= kbSize.height;
+            if (!CGRectContainsPoint(aRect, self.currentTextField.frame.origin) ) {
+                CGPoint scrollPoint = CGPointMake(0.0, self.currentTextField.frame.origin.y-kbSize.height);
+                [self.scrollView setContentOffset:scrollPoint animated:YES];
+            }
+        }];
+    
+}
+
+- (void) notificationKeyboardWillHide:(NSNotification*) notification {
+    
+    //NSLog(@"notificationKeyboardWillHide:\n%@", notification.userInfo);
+    [UIView animateWithDuration:0.25f animations:^{
+        UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+        self.scrollView .contentInset = contentInsets;
+        self.scrollView .scrollIndicatorInsets = contentInsets;
+    }];
+}
 
 
 @end

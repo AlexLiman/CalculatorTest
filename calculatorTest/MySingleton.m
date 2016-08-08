@@ -13,13 +13,23 @@
 
 @synthesize example;
 
-static MySingleton * sharedMySingleton = NULL;
-+(MySingleton *)sharedMySingleton {
-    if (!sharedMySingleton || sharedMySingleton == NULL) {
-        sharedMySingleton = [MySingleton new];
-    }
+//+ (MySingleton *)sharedMySingleton {
+//    
+//    if (!sharedMySingleton || sharedMySingleton == NULL) {
+//        sharedMySingleton = [MySingleton new];
+//    }
+//    
+//    return sharedMySingleton;
+//}
 
-    return sharedMySingleton;
++(MySingleton *)sharedMySingleton {
+    
+    static dispatch_once_t once;
+    static MySingleton *sharedSingleton;
+    dispatch_once(&once, ^{
+        sharedSingleton = [[self alloc] init];
+    });
+    return sharedSingleton;
 }
 
 - (instancetype)init
@@ -46,9 +56,13 @@ static MySingleton * sharedMySingleton = NULL;
     return self;
 }
 
+
+
 - (void)dealloc {
     self.example = nil;
 }
+
+#pragma mark - NetWork
 
 - (void) updateInterfaceWithReachability: (Reachability*) curReach {
     self.netStatus = [curReach currentReachabilityStatus];

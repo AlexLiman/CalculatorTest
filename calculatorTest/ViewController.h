@@ -12,7 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *resultTest;
 
-- (IBAction)testNet;
+
 
 @end
 
